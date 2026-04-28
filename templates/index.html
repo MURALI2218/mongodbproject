@@ -21,7 +21,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     age: document.getElementById("age").value
   };
 
-  await fetch("http://127.0.0.1:5000/save", {
+  await fetch("https://mongodbproject-vtiu.onrender.com/save", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -37,7 +37,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 
 // 🔹 Fetch + display data
 async function loadData() {
-  const res = await fetch("http://127.0.0.1:5000/users");
+  const res = await fetch("https://mongodbproject-vtiu.onrender.com/");
   const data = await res.json();
 
   const list = document.getElementById("list");
