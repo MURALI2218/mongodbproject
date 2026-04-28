@@ -37,7 +37,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 
 // 🔹 Fetch + display data
 async function loadData() {
-  const res = await fetch("https://mongodbproject-vtiu.onrender.com/");
+  const res = await fetch("https://mongodbproject-vtiu.onrender.com/users");
   const data = await res.json();
 
   const list = document.getElementById("list");
