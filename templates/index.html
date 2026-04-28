@@ -1,15 +1,14 @@
 <form id="form">
   <input type="text" id="name" placeholder="Name">
   <input type="number" id="age" placeholder="Age">
+  <input  id="phone" placeholder="phonenumber">
   <button type="submit">Submit</button>
 </form>
 
 <hr>
 
 <h3>Saved Users</h3>
-<button onclick="loadData()">Load Data</button>
-
-<ul id="list"></ul>
+<button ><a href="/users">Users Data</a></button>
 
 <script>
 // 🔹 Save data (your existing code)
@@ -18,35 +17,39 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 
   const data = {
     name: document.getElementById("name").value,
-    age: document.getElementById("age").value
+    age: document.getElementById("age").value,
+    phone: document.getElementById("phone").value
+    
   };
 
-  await fetch("https://mongodbproject-vtiu.onrender.com/save", {
+
+  await fetch("http://127.0.0.1:5000/save", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
   });
-  form.reset()
-  alert("Saved!");
 
-  loadData(); // 🔥 auto refresh after save
+  alert("Saved!");
+  form.reset()
+
+ // 🔥 auto refresh after save
 });
 
 
 // 🔹 Fetch + display data
-async function loadData() {
-  const res = await fetch("https://mongodbproject-vtiu.onrender.com/users");
-  const data = await res.json();
+// async function loadData() {
+//   const res = await fetch("http://127.0.0.1:5000/users");
+//   const data = await res.json();
 
-  const list = document.getElementById("list");
-  list.innerHTML = "";
+//   const list = document.getElementById("list");
+//   list.innerHTML = "";
 
-  data.forEach(user => {
-    list.innerHTML += `<li>${user.name} - ${user.age}</li>`;
-  });
-}
+//   data.forEach(user => {
+//     list.innerHTML += `<li>${user.name} - ${user.age} - ${user.phone} </li>`;
+//   });
+// }
 
 // 🔹 Load automatically when page opens
 window.onload = loadData;
