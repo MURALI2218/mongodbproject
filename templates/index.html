@@ -1,56 +1,48 @@
-<form id="form">
-  <input type="text" id="name" placeholder="Name">
-  <input type="number" id="age" placeholder="Age">
-  <input  id="phone" placeholder="phonenumber">
-  <button type="submit">Submit</button>
+<form action="/uploadnewplace" method="POST"  enctype="multipart/form-data">
+    <label class="form-label">State</label><br>
+    <select class="form-select" name="state" required>
+        <option value="" disabled selected>Select State</option>
+        <option value="TamilNadu">TamilNadu</option>
+        <option value="Maharastra">Maharastra</option>
+        <option value="Jammu">Jammu</option>
+        </select><br><br>
+
+    <label class="form-label">Location</label><br>
+    <input type="text" name="location" placeholder="Location" required><br><br>
+
+    <label class="form-label">Upload Image</label><br>
+     
+     <input type="file" name="image" accept="image/*" required><br><br>
+
+    <label class="form-label">Number of Days</label><br>
+    <input type="number" name="days" placeholder="No.Of.Days" required><br><br>
+
+    <label class="form-label">Guide Avail</label>
+    <input type="checkbox" name="guide" value="Yes"><br><br>
+
+    <label class="form-label">Total Cost Per person</label><br>
+    <input type="number" name="cost" placeholder="Package" required><br><br>
+
+    <label class="form-label">No of Seats</label><br>
+    <input type="number" name="seats" placeholder="No of Vacancy" required><br><br>
+
+    <label class="form-label">Climate</label><br>
+    <select class="form-select" name="climate" required>
+        <option value="Monsoon">Monsoon</option>
+        <option value="Winter">Winter</option>
+        </select><br><br>
+
+    <button type="submit">Submit Data</button>
 </form>
 
-<hr>
-
-<h3>Saved Users</h3>
-<button ><a href="/users">Users Data</a></button>
-
-<script>
-// 🔹 Save data (your existing code)
-document.getElementById("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value,
-    age: document.getElementById("age").value,
-    phone: document.getElementById("phone").value
-    
-  };
-
-
-  await fetch("http://127.0.0.1:5000/save", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-
-  alert("Saved!");
-  form.reset()
-
- // 🔥 auto refresh after save
-});
-
-
-// 🔹 Fetch + display data
-// async function loadData() {
-//   const res = await fetch("http://127.0.0.1:5000/users");
-//   const data = await res.json();
-
-//   const list = document.getElementById("list");
-//   list.innerHTML = "";
-
-//   data.forEach(user => {
-//     list.innerHTML += `<li>${user.name} - ${user.age} - ${user.phone} </li>`;
-//   });
-// }
-
-// 🔹 Load automatically when page opens
-window.onload = loadData;
-</script>
+{% for i in destinaton %}
+    <div  >
+      {{i.state}}
+      {{i.loaction}}
+     
+      {{i.days}}
+      {{i.cost}}
+      {{i.seats}}
+      {{i.climate}}
+    <div>
+{% endfor %} 
