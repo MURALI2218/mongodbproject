@@ -155,3 +155,119 @@ body {
     font-size: 16px;
     border-radius: 21px;
 }
+
+.updateinfo-1{
+    color:rgb(255, 255, 255) ;
+    background-color: rgb(212, 147, 6);
+    padding: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    font-weight: 700;
+    font-size: 16px;
+   
+}
+
+.updateinfo-1:hover{
+    color:rgb(255, 243, 243) ;
+    background-color: rgb(216, 175, 88);
+    
+    border: 1px solid rgb(66, 66, 66);
+    
+}
+
+.login-container {
+    width: 300px;
+   margin: auto;
+   padding: 20px;
+   background: white;
+   border-radius: 8px;
+}
+input[type=text], input[type=password] {
+   
+   padding: 10px;
+   margin: 5px 0 15px;
+   border: 1px solid #ccc;
+}
+button {
+ 
+   padding: 10px;
+   background-color: #04AA6D;
+   color: white;
+   border: none;
+}
+button:hover {
+   opacity: 0.9;
+}
+.logout-btn{
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(242, 45, 45);
+    max-width: 120px;
+    text-align: center;
+}
+
+.userbookings{
+    width:200px !important;
+      padding: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
+    background-color: #04AA6D;
+    max-width: 120px;
+    text-align: center;
+}
+
+.user-bookings{
+    width:200px !important;
+      padding: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
+    background-color: #04AA6D;
+    max-width: 120px;
+    text-align: center;
+}
+
+.cmp-name{
+        font-family: system-ui;
+    color: blueviolet;
+    font-size: 40px;
+    text-align: center;
+}
+.cmp-name-1{
+        font-family: system-ui;
+    color: blueviolet;
+    font-size: 28px;
+    text-align: center;
+}
+
+table {
+    align-items: center;
+    align-content: center;
+  width: 98%;
+  border-collapse: collapse; /* Removes double borders */
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Subtle horizontal lines */
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Zebra striping */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+.table-align{
+    display: flex;
+    justify-content: center;
+}

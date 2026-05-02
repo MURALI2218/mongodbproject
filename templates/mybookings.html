@@ -1,0 +1,48 @@
+<link  rel="stylesheet" href="{{url_for('static', filename = '/css/main.csss')}}">
+<div  class="popup-overlay">
+    <div class="popup-box">
+<form action="/userbookingdata" method="POST"  enctype="multipart/form-data" class="modal">
+
+    <label class="form-label">Name</label><br>
+    <input class="form-content-popup" type="text" name="name" placeholder="Please Enter your Name" required >
+    <br><br>
+    <label class="form-label">Phone Number</label><br>
+    <input class="form-content-popup" type="tel" name="phonenumber" placeholder="Your Phone Number" required>
+    <br><br>
+    <label class="form-label">E-mail</label><br>
+    <input class="form-content-popup" type="email" name="email" placeholder="E-mail"  required>
+    <br><br>
+    <label class="form-label">Planing Date</label><br>
+    <input class="form-content-popup" type="date" name="date" placeholder="Location"  >
+    <br><br>
+
+     <label class="form-label">Total Cost Per person : {{userdetails.cost}}</label><br>
+    <input class="form-content-popup" type="number" name="peoplecount" placeholder="No.Of.Peoples" required><br><br>
+    
+    <label class="form-label">State</label><br>
+    <input class="form-content-popup" type="text" name="userstate" placeholder="Location"  value="{{userdetails.state}}" disabled>
+    <br><br>
+
+    <label class="form-label">Location</label><br>
+    <input class="form-content-popup" type="text" name="userplace" placeholder="Location" value="{{userdetails.location}}" disabled><br><br>
+
+    <label class="form-label">Number of Days : {{userdetails.days}}</label><br><br>
+
+
+    <label class="form-label">Guide Needed</label>
+    <input class="form-content-popup" type="checkbox" name="guide" value="Yes"><br><br>
+
+   
+
+    <label class="form-label">No of Seats Avail : {{userdetails.seats}}</label><br><br>
+   
+
+    <label class="form-label">Climate</label><br>
+    <input class="form-content-popup" name="climate" value="{{userdetails.climate}}" disabled>
+        
+        </select><br><br>
+
+    <button type="submit"style="padding:10px">Submit Data</button>
+</form>
+</div>
+</div>

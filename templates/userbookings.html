@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+<h1 class="cmp-name"> HOLIDAY TOURS</h1>
+<h3 class="cmp-name-1">Users Booking Details</h3>
+{% if role == 'admin' %}
+<h3>All Users List</h3>
+<div class="table-align">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>phone number</th>
+      <th>email</th>
+      <th>No of People</th>
+<th>date</th>
+<th>state</th>
+<th>place</th>
+<th>no.of Days</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.phonenumber}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.peoplecount}}</td>
+      <td>{{i.userdate}}</td>
+      <td>{{i.userstate}}</td>
+      <td>{{i.userplace}}</td>
+      <td>{{i.userdays}}</td>
+    </tr>
+    {% endfor %}
+    </div>
+    {% endif%}
+   
+  </tbody>
+</table>
+
+{% if role == 'user' %}
+<h3>User Booking</h3>
+<div class="table-align">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>phone number</th>
+      <th>email</th>
+      <th>No of People</th>
+<th>date</th>
+<th>state</th>
+<th>place</th>
+<th>no.of Days</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in singleuser %}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.phonenumber}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.peoplecount}}</td>
+      <td>{{i.userdate}}</td>
+      <td>{{i.userstate}}</td>
+      <td>{{i.userplace}}</td>
+      <td>{{i.userdays}}</td>
+    </tr>
+    {% endfor %}
+    </div>
+    {% endif%}
+   
+  </tbody>
+</table>
