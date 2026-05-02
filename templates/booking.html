@@ -1,0 +1,67 @@
+<style>
+    .form-for-userbooking{
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 5px;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .form-label{
+        font-size: 18px;
+    }
+
+    input {
+   padding: 7px;    
+   margin: 5px 0 5px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+   width: 260px;
+   background: #ffffff;
+   font-weight: bold;
+}
+</style>
+
+<div class='form-for-userbooking'>
+<div style="background: #ccc;min-width: 500px; display: flex; justify-content: center;">
+<form  action="/userbookingdata" method="POST"  enctype="multipart/form-data" class="modal">
+    <h2 style="    font-family: poppins;
+    color: #04AA6D;
+    font-size: 35px;"> Book Your Tour Now</h2>
+    <input type="hidden" name="destination" id="" value="{{userdetails._id}}">
+    
+    <label class="form-label">Name</label><br>
+    <input class="form-content" type="text" name="name" placeholder="Please Enter Your Name" required><br><br>
+
+    <label class="form-label">Phone Number</label><br>
+    <input class="form-content" type="tel" name="phonenumber" placeholder="Contact Phone number" required><br><br>
+
+    <label class="form-label">E-mail ID</label><br>
+    <input class="form-content" type="email" name="email" placeholder="E-mail" required><br><br>
+
+    <label class="form-label"> Cost Per Single Person : {{userdetails.cost}}</label><br>
+    <input class="form-content" type="number" name="peoplecount" placeholder="Number of People" required><br><br>
+
+    <label class="form-label">Planned Date</label><br>
+    <input class="form-content" type="date" name="date" required><br><br>
+
+    <label class="form-label">State</label><br>
+    <input class="form-content" type="text" name="userstate" value="{{userdetails.state}}" readonly ><br><br>
+
+    <label class="form-label">Location</label><br>
+    <input class="form-content" type="text" name="userplace" value="{{userdetails.location}}" readonly ><br><br>
+
+    <label class="form-label">No of Days </label><br><br>
+    <input class="form-content" type="text" name="userdays" value="{{userdetails.days}}" readonly ><br><br>
+
+    <label class="form-label">No of Seats  Available: {{userdetails.seats}}</label><br><br>
+    
+    <label class="form-label">Climate</label><br>
+    <input class="form-content" type="text" name="userclimate"  value="{{userdetails.climate}}"  readonly ><br><br>
+
+    <button type="submit"style="padding:10px">Book Now</button>
+</form>
+</div>
+</div>

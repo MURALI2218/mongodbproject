@@ -114,19 +114,22 @@ def add_header(response):
 
 @app.route('/cerds' , methods=['POST'])
 def cerds():
-   
     logusername = request.form.get('username')
     userpassword = request.form.get('password')
+
     user = users.find_one({
         "username" : logusername,
         "password" : userpassword
     })
+
      
     if user:
         # store session
         session['username'] = user['username']
         session['role'] = user['role']
-
+        
+       
+       
         return redirect(url_for('home'))     
     return " invalid credentials"
 
@@ -147,23 +150,29 @@ def signup():
 @app.route('/userbooking/<id>', methods = ['GET'])
 def userbooking(id):
     userdetails = collection.find_one({'_id':ObjectId(id)})
-
+    print(userdetails)
     return render_template('booking.html', userdetails = userdetails)
 
 @app.route('/userbookingdata', methods = ["POST"])
 def userbookingdata():
- 
+    destination_id = request.form.get("destination")
+    destination = collection.find_one({'_id':ObjectId(destination_id)})
+
+    userid = users.find_one({ 'username' : session['username']})
+    print(userid)
     data = {
+        'userid' : userid.get('_id'),
         'name' : request.form.get('name'),
         'phonenumber':int(request.form.get('phonenumber')),
          'peoplecount':int(request.form.get('peoplecount')),
          'email' : request.form.get('email'),
          'userdate':request.form.get('date'),
-        'userstate': request.form.get('userstate'),
-        'userplace': request.form.get('userplace'),
-        # 'userdays':int( request.form.get('userdays')),
-        'userclimate' : request.form.get('userclimate')
+        'userstate':destination.get('state'),
+        'userplace':destination.get('location'),
+        'userdays': destination.get('days'),
+        'userclimate' : destination.get('climate')
     }
+    
     booking.insert_one(data)
    
     return redirect(url_for('home'))
@@ -174,9 +183,11 @@ def allbookingsforadmin():
         data= booking.find({})
         return render_template('userbookings.html', data=data, role = session.get('role'))
     else:
-        singleuser = booking.find({})
-        return render_template('userbookings.html',singleuser=singleuser, role = session.get('role'))
-
+        
+        data= booking.find({'userid': ObjectId("69f3861177f10e8237861c6d")})
+        
+        return render_template('userbookings.html', data=data, role = session.get('role'))
+        
 
 if __name__ == "__main__":
     app.run(debug=True)

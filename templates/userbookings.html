@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
-<h1 class="cmp-name"> HOLIDAY TOURS</h1>
-<h3 class="cmp-name-1">Users Booking Details</h3>
+<h1 class="cmp-name" style="text-align: center !important;"> HOLIDAY TOURS</h1>
+<h3 class="cmp-name-1" >Users Booking Details</h3>
 {% if role == 'admin' %}
-<h3>All Users List</h3>
+<h3 style="text-align: center;">All Users List</h3>
 <div class="table-align">
 <table>
   <thead>
@@ -15,6 +15,7 @@
 <th>state</th>
 <th>place</th>
 <th>no.of Days</th>
+
     </tr>
   </thead>
   <tbody>
@@ -53,7 +54,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for i in singleuser %}
+    {% for i in data %}
     <tr>
       <td>{{i.name}}</td>
       <td>{{i.phonenumber}}</td>

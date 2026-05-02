@@ -7,19 +7,19 @@
 
 <body>  
 
-    <div style="display: flex;flex-direction: column;flex-wrap: wrap;">
+    <div style="display: flex;flex-direction: row-reverse;flex-wrap: wrap; gap: 20px;margin-bottom:15px;">
     <a href="/login" class="logout-btn" >Logout</a>
       {% if role == 'user' %}
-    <a href="/allbookingsforadmin" class="user-bookings"> My Bookings</a>
+    
     {% endif %}
 
-    
+    <a href="/allbookingsforadmin" class="user-bookings">Bookings</a>
 
-    </div>
+ 
 
     {% if role == 'admin' %}
 <button id="openPopup" style="width:200px !important"><i class="bi"></i>+  Create Destination</button>
-
+   </div>
 <!-- Popup -->
 <div id="popupOverlay" class="popup-overlay">
     <div class="popup-box">
